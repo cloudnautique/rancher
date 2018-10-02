@@ -16,13 +16,13 @@ ENV LOGLEVEL_VERSION v0.1
 ENV TINI_VERSION v0.18.0
 ENV TELEMETRY_VERSION v0.5.1
 
-RUN curl -sLf https://github.com/rancher/machine-package/releases/download/${CATTLE_MACHINE_VERSION}/docker-machine.tar.gz | tar xvzf - -C /usr/bin && \
-    curl -sLf https://github.com/rancher/loglevel/releases/download/${LOGLEVEL_VERSION}/loglevel-amd64-${LOGLEVEL_VERSION}.tar.gz | tar xvzf - -C /usr/bin
+RUN curl -Lf https://github.com/rancher/machine-package/releases/download/${CATTLE_MACHINE_VERSION}/docker-machine.tar.gz | tar xvzf - -C /usr/bin && \
+    curl -Lf https://github.com/rancher/loglevel/releases/download/${LOGLEVEL_VERSION}/loglevel-amd64-${LOGLEVEL_VERSION}.tar.gz | tar xvzf - -C /usr/bin
 
-RUN curl -sLf https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini > /usr/bin/tini && \
-    curl -sLf https://github.com/rancher/helm/releases/download/${CATTLE_HELM_VERSION}/helm > /usr/bin/helm && \
-    curl -sLf https://github.com/rancher/helm/releases/download/${CATTLE_HELM_VERSION}/tiller > /usr/bin/tiller && \
-    curl -sLf https://github.com/rancher/telemetry/releases/download/${TELEMETRY_VERSION}/telemetry > /usr/bin/telemetry && \
+RUN curl -Lf https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini > /usr/bin/tini && \
+    curl -Lf https://github.com/rancher/helm/releases/download/${CATTLE_HELM_VERSION}/helm > /usr/bin/helm && \
+    curl -Lf https://github.com/rancher/helm/releases/download/${CATTLE_HELM_VERSION}/tiller > /usr/bin/tiller && \
+    curl -Lf https://github.com/rancher/telemetry/releases/download/${TELEMETRY_VERSION}/telemetry > /usr/bin/telemetry && \
     chmod +x /usr/bin/helm /usr/bin/tini /usr/bin/telemetry /usr/bin/tiller
 
 ENV CATTLE_UI_PATH /usr/share/rancher/ui
